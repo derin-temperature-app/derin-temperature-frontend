@@ -1,4 +1,4 @@
-import { FETCH_LOCATIONS } from '../acitons/locationActions';
+import { FETCH_LOCATIONS } from '../actions/locationActions';
 
 const initialState = {
   locations: []
@@ -7,7 +7,7 @@ const initialState = {
 export default function reducers(state = initialState, action) {
   switch(action.type) {
     case FETCH_LOCATIONS:
-      return { locaitons: [state.locations, ...action.payload] };
+      return { locations: [state.locations, ...action.payload] };
     default:
       return state;
   }
