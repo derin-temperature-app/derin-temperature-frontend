@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Location from '../components/Location';
+import Locations from '../components/Locations';
 import { connect } from 'react-redux';
-import { fetchLocation, createLocation } from '../actions/locationAction';
+import { fetchLocation, createLocation, deleteLocation } from '../actions/locationAction';
 import { getLocationsList } from '../selectors/weatherSelector';
 
 class LocationDetail extends Component { 
   static propTypes = { 
     locations: PropTypes.array,
     fetch: PropTypes.func,
-    createLocation: PropTypes.func
+    createLocation: PropTypes.func,
+    deleteLocation: PropTypes.func
   };
 
   componentDidMount() {
@@ -20,7 +21,7 @@ class LocationDetail extends Component {
     const { locations } = this.props;
     return (
     <>
-      <Location locations={locations} />
+      <Locations locations={locations} />
     </>
     );
   }
@@ -36,6 +37,9 @@ const mapDispatchToProps = dispatch => ({
   },
   createLocation(location) {
     dispatchEvent(createLocation(location));
+  },
+  deleteLocation(location) {
+    dispatchEvent(deleteLocation(location));
   }
 });
 

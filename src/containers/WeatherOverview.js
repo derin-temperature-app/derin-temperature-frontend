@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Temperature from '../components/Temperature';
+import Temperatures from '../components/Temperatures';
 import { connect } from 'react-redux';
 import { fetchTemperature, createTemperature } from '../actions/temperatureAction';
 import { getTemperaturesList } from '../selectors/weatherSelector';
@@ -20,7 +20,7 @@ class WeatherOverview extends Component {
     const { temperatures } = this.props;
     return (
     <>
-      <Temperature temperatures={temperatures} />
+      <Temperatures temperatures={temperatures} />
     </>
     );
   }
